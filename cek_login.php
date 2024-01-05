@@ -35,13 +35,12 @@ if(!empty(trim($username)) && !empty(trim($password))) {
 
     //Cek ketersediaan data username
     if($rows !=0){
-        $getPassword = mysqli_fetch_assoc($query)['password'];
+        $getData = $query->fetch_assoc();
 
-        // var_dump($getPassword);
-        // die;
-        if(password_verify($password,$getPassword)){
+        
+        if(password_verify($password,$getData['password'])){
             $_SESSION['username']=$username;
-            $_SESSION['id_users']=mysqli_fetch_assoc($query)['id_users'];
+            $_SESSION['id_users']=$getData['id_users'];
 
             header('location: admin/index.php');
         } else{

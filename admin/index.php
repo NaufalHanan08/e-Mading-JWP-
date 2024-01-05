@@ -42,19 +42,32 @@ $data_artikel = $db->tampil_data();
                     </thead>
                     <tbody>
                       <?php
-                       if ($data_artikel == 0){ // kalo dari vid '0'
+                       if ($data_artikel == '0'){ // kalo dari vid '0'
                         echo "<tr><td>Data Tidak Tersedia!</td></tr>";
                        } else {
                       $no = 1;
-                      foreach($data_artikel as $row){
+                      foreach($data_artikel as $row) {
                         ?>
                       <tr>
-                        <th><?= $no++; ?></th>
-                        <td><?= $row['header']; ?></td>
-                        <td><?= $row['judul_artikel']; ?></td>
-                        <td><?= $row['status_publish']; ?></td>
-                        <td><?= $row['updated_at']; ?></td>
-                        <td>
+                        <th class="text-center"><?= $no++; ?></th>
+                        <td class="text-center">
+                          <a href="../files/<?= $row['header']; ?>" target="_blank">
+                          <img src="../files/<?= $row['header']; ?>" class="img-thumbnail rounded" style="max-width: 90px" />
+                          </a>
+                          
+                        </td >
+                        <td class="text-center"><?= $row['judul_artikel']; ?></td>
+                        <td class="text-center"><?= $row['status_publish']; ?></td>
+                        <td class="text-center">
+                          <?php
+                          if($row['updated_at']==''){
+                          echo date('d M Y H:i:s', strtotime($row['created_at']));
+                          }else{
+                            echo date('d M Y H:i:s', strtotime($row['updated_at']));
+                          }
+                          ?>
+                        </td>
+                        <td class="text-center">
                           <a href="edit.php" class="btn btn-sm btn-warning">Ubah</a>
                           <a href="hapus.php" class="btn btn-sm btn-danger">Hapus</a>
                         </td>

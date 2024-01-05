@@ -31,9 +31,7 @@
 
     <script src="../assets/admin/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
-
     <!-- Vendors JS -->
-
     <!-- Main JS -->
     <script src="../assets/admin/assets/js/main.js"></script>
 
@@ -41,5 +39,23 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      $('.summernote').summernote({
+        placeholder: 'Isi Artikel disini',
+        tabsize: 2,
+        height: 280,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });});
+    </script>
   </body>
 </html>
