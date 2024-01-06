@@ -68,8 +68,8 @@ $data_artikel = $db->tampil_data();
                           ?>
                         </td>
                         <td class="text-center">
-                          <a href="edit.php" class="btn btn-sm btn-warning">Ubah</a>
-                          <a href="hapus.php" class="btn btn-sm btn-danger">Hapus</a>
+                          <a href="edit.php?id=<?= $row['id_artikel']; ?>" class="btn btn-sm btn-warning">Ubah</a>
+                          <a href="proses_aksi.php?id=<?= $row['id_artikel']; ?>&aksi=delete" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin akan menghapus artikel ini?');">Hapus</a>
                         </td>
                       </tr>
                       <?php } 
